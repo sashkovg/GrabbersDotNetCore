@@ -1,0 +1,46 @@
+﻿{
+  "Logging": {
+    "File": {
+      "Path": "/GrabberDotNetCoreLogger/log.txt"
+    }
+  },
+  "grabbers": {
+    "digikey": "OpenQA.Selenium.Chrome.ChromeDriver"
+   
+  },
+  "drivers": {
+    "OpenQA.Selenium.Chrome.ChromeDriver": {
+      "arguments": [
+        //"homepage=about:blank",
+        "incognito",
+        "--start-maximized",
+        //"headless",
+        //"window-size=1920,1080",
+        "blink-settings=imagesEnabled=false",
+        "disable-web-security"
+      ],
+      "hideCommandPromptWindow": false,
+      "pageLoadTimeOut": 5,
+      "suppressInitialDiagnosticInformation": false
+
+    },
+    "OpenQA.Selenium.Firefox.FirefoxDriver": {
+      "settings": {}
+    },
+    "OpenQA.Selenium.PhantomJS.PhantomJSDriver": {
+      "settings": {}
+    },
+    "OpenQA.Selenium.Edge.EdgeDriver": {
+      "settings": {}
+    },
+    "OpenQA.Selenium.Opera.OperaDriver": {
+      "settings": {}
+    },
+    "OpenQA.Selenium.Safari.SafariDriver": {
+      "settings": {}
+    },
+    "OpenQA.Selenium.IE.InternetExplorerDriver": {
+      "settings": {}
+    }
+  }
+}

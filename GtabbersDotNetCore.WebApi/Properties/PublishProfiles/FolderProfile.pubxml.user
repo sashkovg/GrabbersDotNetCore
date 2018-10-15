@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>ftp://195.201.21.229:21/Grabbers</_PublishTargetUrl>
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA1RmXhWx14UidhRCco790sgAAAAACAAAAAAAQZgAAAAEAACAAAADusttIJgcL++aKtZVzqdh/n3Z1LW8bdLSyuJOFGlKa1gAAAAAOgAAAAAIAACAAAAAQwU45Vp22M5leNqwVLEMJiYSHlIOMAQ8VEEtFGw2J0iAAAAATr8Z01FxClqYYcUq+Nh+BL11RUuNr6Jy6Y81sBNsmNUAAAADRvf5YsLq2x0zqyRfkkGlAwqwShGV+N47tAy7IT8zNUEN9jf0FSJSYbu2eI89p/FNv0I4eFRDprxPjx1VL8zlM</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="appsettings.Development.json">
+      <publishTime>10/10/2018 22:31:08</publishTime>
+    </File>
+    <File Include="appsettings.json">
+      <publishTime>10/10/2018 22:31:08</publishTime>
+    </File>
+    <File Include="config.json">
+      <publishTime>10/15/2018 01:01:17</publishTime>
+    </File>
+    <File Include="CoreCompat.Selenium.WebDriver.dll">
+      <publishTime>09/22/2017 16:28:00</publishTime>
+    </File>
+    <File Include="CoreCompat.System.Drawing.dll">
+      <publishTime>06/27/2016 17:30:42</publishTime>
+    </File>
+    <File Include="CoreCompat.WebDriver.Support.dll">
+      <publishTime>06/24/2017 18:18:56</publishTime>
+    </File>
+    <File Include="dotnet-aspnet-codegenerator-design.dll">
+      <publishTime>09/01/2017 15:13:14</publishTime>
+    </File>
+    <File Include="GrabbersDotNetCore.Model.dll">
+      <publishTime>10/14/2018 20:55:17</publishTime>
+    </File>
+    <File Include="GrabbersDotNetCore.Model.pdb">
+      <publishTime>10/14/2018 20:55:17</publishTime>
+    </File>
+    <File Include="GtabbersDotNetCore.Bll.dll">
+      <publishTime>10/15/2018 00:58:59</publishTime>
+    </File>
+    <File Include="GtabbersDotNetCore.Bll.pdb">
+      <publishTime>10/15/2018 00:58:59</publishTime>
+    </File>
+    <File Include="GtabbersDotNetCore.WebApi.deps.json">
+      <publishTime>10/15/2018 01:02:40</publishTime>
+    </File>
+    <File Include="GtabbersDotNetCore.WebApi.dll">
+      <publishTime>10/15/2018 01:02:39</publishTime>
+    </File>
+    <File Include="GtabbersDotNetCore.WebApi.pdb">
+      <publishTime>10/15/2018 01:02:39</publishTime>
+    </File>
+    <File Include="GtabbersDotNetCore.WebApi.PrecompiledViews.dll">
+      <publishTime>10/15/2018 01:02:40</publishTime>
+    </File>
+    <File Include="GtabbersDotNetCore.WebApi.PrecompiledViews.pdb">
+      <publishTime>10/15/2018 01:02:40</publishTime>
+    </File>
+    <File Include="GtabbersDotNetCore.WebApi.runtimeconfig.json">
+      <publishTime>10/15/2018 01:02:40</publishTime>
+    </File>
+    <File Include="HtmlAgilityPack.CssSelectors.NetCore.dll">
+      <publishTime>10/02/2018 05:20:26</publishTime>
+    </File>
+    <File Include="HtmlAgilityPack.dll">
+      <publishTime>02/02/2018 11:44:30</publishTime>
+    </File>
+    <File Include="Microsoft.CodeAnalysis.CSharp.Workspaces.dll">
+      <publishTime>09/01/2017 15:13:10</publishTime>
+    </File>
+    <File Include="Microsoft.CodeAnalysis.Workspaces.dll">
+      <publishTime>09/01/2017 15:13:18</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.Configuration.Abstractions.dll">
+      <publishTime>09/05/2018 03:15:20</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.Configuration.dll">
+      <publishTime>09/05/2018 03:15:30</publishTime>
+    </File>
+    <File Include="Microsoft.Extensions.Primitives.dll">
+      <publishTime>09/05/2018 03:14:36</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll">
+      <publishTime>09/01/2017 15:13:13</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.Core.dll">
+      <publishTime>09/01/2017 15:13:14</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.dll">
+      <publishTime>09/01/2017 15:13:13</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll">
+      <publishTime>09/01/2017 15:13:14</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll">
+      <publishTime>09/01/2017 15:13:14</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll">
+      <publishTime>09/01/2017 15:13:14</publishTime>
+    </File>
+    <File Include="Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll">
+      <publishTime>09/01/2017 15:13:14</publishTime>
+    </File>
+    <File Include="NuGet.Frameworks.dll">
+      <publishTime>09/01/2017 15:13:13</publishTime>
+    </File>
+    <File Include="Resources/chromedriver.exe">
+      <publishTime>09/13/2018 11:58:26</publishTime>
+    </File>
+    <File Include="runtimes/unix/lib/netcoreapp2.0/System.Drawing.Common.dll">
+      <publishTime>09/18/2017 05:32:24</publishTime>
+    </File>
+    <File Include="runtimes/win/lib/netcoreapp2.0/System.Drawing.Common.dll">
+      <publishTime>09/18/2017 05:32:24</publishTime>
+    </File>
+    <File Include="System.Composition.AttributedModel.dll">
+      <publishTime>09/01/2017 15:13:12</publishTime>
+    </File>
+    <File Include="System.Composition.Convention.dll">
+      <publishTime>09/01/2017 15:13:12</publishTime>
+    </File>
+    <File Include="System.Composition.Hosting.dll">
+      <publishTime>09/01/2017 15:13:12</publishTime>
+    </File>
+    <File Include="System.Composition.Runtime.dll">
+      <publishTime>09/01/2017 15:13:13</publishTime>
+    </File>
+    <File Include="System.Composition.TypedParts.dll">
+      <publishTime>09/01/2017 15:13:13</publishTime>
+    </File>
+    <File Include="System.Memory.dll">
+      <publishTime>06/06/2018 13:29:04</publishTime>
+    </File>
+    <File Include="System.Runtime.CompilerServices.Unsafe.dll">
+      <publishTime>06/06/2018 13:29:04</publishTime>
+    </File>
+    <File Include="System.Xml.XPath.XmlDocument.dll">
+      <publishTime>11/05/2016 04:57:34</publishTime>
+    </File>
+    <File Include="web.config">
+      <publishTime>10/15/2018 01:02:40</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

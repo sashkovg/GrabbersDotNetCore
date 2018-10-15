@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ResponseModels\ResponseModel.cs" />
+    <Compile Remove="ResponseModels\Robot\Products\Response.cs" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CoreCompat.Selenium.WebDriver" Version="3.5.3-beta001" />
+    <PackageReference Include="CoreCompat.WebDriver.Support" Version="3.4.0-beta1" />
+    <PackageReference Include="HtmlAgilityPack.CssSelectors.NetCore" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0-preview2-35157" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GrabbersDotNetCore.Model\GrabbersDotNetCore.Model.csproj" />
+  </ItemGroup>
+
+</Project>
