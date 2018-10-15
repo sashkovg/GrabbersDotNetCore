@@ -405,7 +405,7 @@ namespace GtabbersDotNetCore.Bll.BllRepositories.Robots
                         }
                         if (details[i].QuerySelector("th").InnerText.NormalizeStr().ToLower() == "quantity available")
                         {
-                            string quantityString = Regex.Replace(value, "[^0-9.]", "");
+                            string quantityString = Regex.Replace(value, "[^0-9]", "");
                             if (!string.IsNullOrWhiteSpace(quantityString))
                             {
                                 product.Position.Quantity = Int32.Parse(quantityString);

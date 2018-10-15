@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.IO;
 using GtabbersDotNetCore.Bll.Helpers;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Serilog;
 
 namespace GtabbersDotNetCore.WebApi
 {
@@ -17,15 +14,23 @@ namespace GtabbersDotNetCore.WebApi
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("config.json");
+                .AddJsonFile("appsettings.json");
 
             Helper.ConfigurationGrabber = builder.Build();
+
+            Log.Logger = new LoggerConfiguration()
+                 .ReadFrom.Configuration(Helper.ConfigurationGrabber)
+                 .CreateLogger();
+            
+
             BuildWebHost(args).Run();
         }
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .Build();
+            .ConfigureLogging((hostingContext, config) =>
+            {
+                config.ClearProviders();
+            }).UseSerilog().UseStartup<Startup>().Build();
     }
 }

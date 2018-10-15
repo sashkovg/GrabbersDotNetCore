@@ -20,11 +20,12 @@ namespace GtabbersDotNetCore.WebApi.Controllers
     public class RobotsController : Controller
     {
         private readonly IBllFactory _bllFactory;
+        private readonly ILogger _logger;
 
-
-        public RobotsController(IBllFactory factoryBll)
+        public RobotsController(IBllFactory factoryBll, ILogger<RobotsController> logger)
         {
             _bllFactory = factoryBll ?? throw new ArgumentNullException(nameof(factoryBll));
+            _logger = logger;
         }
 
 
@@ -36,7 +37,6 @@ namespace GtabbersDotNetCore.WebApi.Controllers
             timer.Start();
             try
             {
-                
                 Request req = request.ToObject<Request>();
                 result = await _bllFactory.ActionsFactory.RunAction(req, result);
                 result.Status = "ok";
@@ -45,6 +45,7 @@ namespace GtabbersDotNetCore.WebApi.Controllers
             {
                 result.Status = "error";
                 result.Errors.Add($"Message:{ex.Message.Trim()}; StackTrace: {ex.StackTrace.ToString()}");
+                _logger.LogError($"Request: {request}; Message: {ex.Message.Trim()}; StackTrace: {ex.StackTrace.ToString()}");
             }
             finally
             {

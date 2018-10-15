@@ -19,7 +19,7 @@ namespace GtabbersDotNetCore.Bll.BllRepositories.Robots.RobotBase
         {
             var basePath =
                 System.IO.Path.GetDirectoryName((System.Reflection.Assembly.GetExecutingAssembly().Location)) + "/Resources/";
-            var driver = Helper.ConfigurationGrabber.GetSection($"grabbers:digikey").Value;
+            var driver = Helper.ConfigurationGrabber.GetSection($"Grabbers:digikey").Value;
             Type type = Type.GetType($"{driver},CoreCompat.Selenium.WebDriver");
             switch (driver)
             {
@@ -35,9 +35,9 @@ namespace GtabbersDotNetCore.Bll.BllRepositories.Robots.RobotBase
                     ChromeOptions options = new ChromeOptions();
                     options.AddArguments("--proxy-server=socks5://195.201.37.174:21");
 
-                    if (Helper.ConfigurationGrabber.GetSection($"drivers:{driver}").GetSection("arguments") != null)
+                    if (Helper.ConfigurationGrabber.GetSection($"Drivers:{driver}").GetSection("arguments") != null)
                         options.AddArguments(
-                            (Helper.ConfigurationGrabber.GetSection($"drivers:{driver}").GetSection("arguments").GetChildren().Select(x => x.Value.ToString())));
+                            (Helper.ConfigurationGrabber.GetSection($"Drivers:{driver}").GetSection("arguments").GetChildren().Select(x => x.Value.ToString())));
 
                     Driver = (ChromeDriver)Activator.CreateInstance(type, service, options);
 
