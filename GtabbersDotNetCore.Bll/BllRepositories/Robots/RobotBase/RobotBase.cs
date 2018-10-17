@@ -13,6 +13,9 @@ using GtabbersDotNetCore.Bll.Helpers;
 using GtabbersDotNetCore.Bll.Interfaces;
 using OpenQA.Selenium;
 using HtmlAgilityPack;
+using Microsoft.Extensions.Logging;
+using Serilog;
+using System.Diagnostics;
 
 namespace GtabbersDotNetCore.Bll.BllRepositories.Robots.RobotBase
 {
@@ -31,8 +34,10 @@ namespace GtabbersDotNetCore.Bll.BllRepositories.Robots.RobotBase
         protected Response Response;
         protected short ItemsOnPage = 0;
         protected string Domain;
+      
         protected RobotBase(Params request, string robot) : this(robot)
         {
+           
             switch (request)
             {
                 case ProductsSearch _:
@@ -98,6 +103,7 @@ namespace GtabbersDotNetCore.Bll.BllRepositories.Robots.RobotBase
                             page < endPage;
                             page++)
                         {
+                            Dom = null;
                             data = await GetInfoAboutProducts(page);
                             if (!data.Any())
                                 break;
@@ -109,17 +115,17 @@ namespace GtabbersDotNetCore.Bll.BllRepositories.Robots.RobotBase
                             List<Product> deepResult = new List<Product>();
                             foreach(var product in Response.Result.Products)
                             {
-                                List<Product> deepProduct = await GetInfoAboutProduct(product.Catalog.Resources.First(x=>x.Type=="source").Uri);
+                                Dom = null;
+                                List<Product> deepProduct =  GetInfoAboutProduct(product.Catalog.Resources.First(x=>x.Type=="source").Uri);
                                 deepResult.AddRange(deepProduct);
                             }
-                            
                             Response.Result.Products = deepResult;
                         }
 
                         break;
 
                     case Helper.TypeOfSearchResult.Product:
-                        data = await GetInfoAboutProduct();
+                        data =  GetInfoAboutProduct();
                         Response.Result.Products.AddRange(data);
                         break;
 
@@ -160,7 +166,7 @@ namespace GtabbersDotNetCore.Bll.BllRepositories.Robots.RobotBase
             throw new NotImplementedException();
         }
 
-        public virtual Task<List<Product>> GetInfoAboutProduct(string url = null)
+        public virtual List<Product> GetInfoAboutProduct(string url = null)
         {
             throw new NotImplementedException();
         }
@@ -170,7 +176,7 @@ namespace GtabbersDotNetCore.Bll.BllRepositories.Robots.RobotBase
         {
             try
             {
-                Response.Result.Products = await GetInfoAboutProduct(Url);
+                Response.Result.Products =  GetInfoAboutProduct(Url);
                 return Response;
             }
             catch (NoSuchElementException ex)

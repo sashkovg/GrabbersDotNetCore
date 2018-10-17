@@ -14,6 +14,7 @@ using GrabbersDotNetCore.Model.ResponseModels.Robot.Products.Result.Product.Cata
 using GtabbersDotNetCore.Bll.Helpers;
 using OpenQA.Selenium;
 using HtmlAgilityPack.CssSelectors.NetCore;
+using OpenQA.Selenium.Support.UI;
 
 namespace GtabbersDotNetCore.Bll.BllRepositories.Robots
 {
@@ -30,13 +31,12 @@ namespace GtabbersDotNetCore.Bll.BllRepositories.Robots
             try
             {
                 Driver.Navigate().GoToUrl(Domain);
-
                 IWebElement element = Driver.FindElement(By.CssSelector("#content .searchbox-inner .searchbox-inner-searchtext input[name=keywords]"));
                 element.SendKeys(PartNumber);
                 Thread.Sleep(500);
                 IWebElement searchButton = Driver.FindElement(By.CssSelector("#content .searchbox-inner #header-search-button"));
                 searchButton.Click();
-
+                
                 if (Driver.IsElementExist(By.Id("qpLinkList")))
                 {
                     var link = Driver.FindElement(By.CssSelector("#qpLinkList a"));
@@ -75,15 +75,22 @@ namespace GtabbersDotNetCore.Bll.BllRepositories.Robots
             List<Product> result = new List<Product>();
             try
             {
-
+                TakeScreenShot($"digikey_table");
                 if (page > 1)
                 {
                     var currentUrl = Driver.Url;
-                    int indexOfSearch = currentUrl.IndexOf("?k=");
-                    currentUrl = currentUrl.Insert(indexOfSearch, $"/page/{page}");
+                    if(currentUrl.IndexOf("k=") < 0)
+                    {
+
+                    }
+                    else
+                    {
+                        int indexOfSearch = currentUrl.IndexOf("k=");
+                        currentUrl = currentUrl.Insert(indexOfSearch, $"/page/{page}");
+                    }
+                   
                     Driver.Navigate().GoToUrl(currentUrl);
                 }
-
                 if (Dom.QuerySelector("#lnkPart") != null)
                 {
                     var labels = Dom.QuerySelectorAll("#tblhead tr:nth-child(1) th").ToList();
@@ -265,15 +272,19 @@ namespace GtabbersDotNetCore.Bll.BllRepositories.Robots
             }
             return Task.FromResult(result);
         }
-        public override Task<List<Product>> GetInfoAboutProduct(string url = null)
+        public override List<Product> GetInfoAboutProduct(string url = null)
         {
-            Dom = null;
             if (url != null)
+            {
                 Driver.Navigate().GoToUrl(url);
+                Thread.Sleep(650);
+            }
+              
 
             List<Product> result = new List<Product>();
             try
             {
+
                 Product product = new Product();
                 var page = Dom.QuerySelector("#content");
 
@@ -338,7 +349,6 @@ namespace GtabbersDotNetCore.Bll.BllRepositories.Robots
                                             }
                         });
                     }
-
                 }
                 if (page.QuerySelector($".product-details-product-attributes tr") != null)
                 {
@@ -363,8 +373,6 @@ namespace GtabbersDotNetCore.Bll.BllRepositories.Robots
                             }
                             product.Catalog.CustomFields[label] = value;
                         }
-
-
                     }
                 }
                 if (page.QuerySelector($".product-details-environmental-export tr") != null)
@@ -419,9 +427,7 @@ namespace GtabbersDotNetCore.Bll.BllRepositories.Robots
                             {
                                 product.Position.LeadTime = Int32.Parse(leadTimeString) * days;
                             }
-
                         }
-
                     }
                 }
                 if (page.QuerySelector($"#qty") != null)
@@ -462,7 +468,7 @@ namespace GtabbersDotNetCore.Bll.BllRepositories.Robots
                 TakeScreenShot($"digikey_error_{DateTime.Now.Millisecond}");
                 throw;
             }
-            return Task.FromResult(result);
+            return result;
         }
 
     }
