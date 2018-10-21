@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\geckodriver.exe" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
@@ -23,8 +27,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Resources\geckodriver.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\GrabbersDotNetCore.Model\GrabbersDotNetCore.Model.csproj" />
     <ProjectReference Include="..\GtabbersDotNetCore.Bll\GtabbersDotNetCore.Bll.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="web.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

@@ -20,6 +20,7 @@ namespace GtabbersDotNetCore.Bll.BllRepositories.Robots
 {
     public class DigikeyRobot : RobotBase.RobotBase
     {
+        private string urlForPaging = string.Empty;
         public DigikeyRobot(Params request, string robot) : base(request, robot)
         {
             ItemsOnPage = 25;
@@ -75,21 +76,24 @@ namespace GtabbersDotNetCore.Bll.BllRepositories.Robots
             List<Product> result = new List<Product>();
             try
             {
-                TakeScreenShot($"digikey_table");
                 if (page > 1)
                 {
-                    var currentUrl = Driver.Url;
-                    if(currentUrl.IndexOf("k=") < 0)
+                    string currentPageUrl = string.Empty;
+                    if(urlForPaging.IndexOf("k=") < 0)
                     {
 
                     }
                     else
                     {
-                        int indexOfSearch = currentUrl.IndexOf("k=");
-                        currentUrl = currentUrl.Insert(indexOfSearch, $"/page/{page}");
+                        int indexOfSearch = urlForPaging.IndexOf("?k=");
+                        currentPageUrl = urlForPaging.Insert(indexOfSearch, $"/page/{page}");
                     }
                    
-                    Driver.Navigate().GoToUrl(currentUrl);
+                    Driver.Navigate().GoToUrl(currentPageUrl);
+                }
+                else
+                {
+                    urlForPaging = Driver.Url;
                 }
                 if (Dom.QuerySelector("#lnkPart") != null)
                 {
@@ -277,10 +281,8 @@ namespace GtabbersDotNetCore.Bll.BllRepositories.Robots
             if (url != null)
             {
                 Driver.Navigate().GoToUrl(url);
-                Thread.Sleep(650);
             }
               
-
             List<Product> result = new List<Product>();
             try
             {

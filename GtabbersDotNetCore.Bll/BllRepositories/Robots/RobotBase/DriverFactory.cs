@@ -8,6 +8,8 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.PhantomJS;
+using System.Reflection;
+using OpenQA.Selenium.Remote;
 
 namespace GtabbersDotNetCore.Bll.BllRepositories.Robots.RobotBase
 {
@@ -25,30 +27,16 @@ namespace GtabbersDotNetCore.Bll.BllRepositories.Robots.RobotBase
             {
                 case "OpenQA.Selenium.Chrome.ChromeDriver":
                     ChromeDriverService service = ChromeDriverService.CreateDefaultService(basePath);
-
-                    //if (Helper.ConfigurationGrabber.GetSection($"drivers:{driver}") != null)
-                    //{
-                    //    service.SuppressInitialDiagnosticInformation = Convert.ToBoolean(Helper.ConfigurationGrabber.GetSection($"drivers:{driver}").GetSection("suppressInitialDiagnosticInformation").Value);
-                    //    service.HideCommandPromptWindow = Convert.ToBoolean(Helper.ConfigurationGrabber.GetSection($"drivers:{driver}").GetSection("hideCommandPromptWindow").Value);
-                    //}
-
                     ChromeOptions options = new ChromeOptions();
-                    options.AddArguments("--proxy-server=socks5://195.201.37.174:21");
-
+                    
                     if (Helper.ConfigurationGrabber.GetSection($"Drivers:{driver}").GetSection("arguments") != null)
                         options.AddArguments(
                             (Helper.ConfigurationGrabber.GetSection($"Drivers:{driver}").GetSection("arguments").GetChildren().Select(x => x.Value.ToString())));
 
                     Driver = (ChromeDriver)Activator.CreateInstance(type, service, options);
-
-                    //if (ExtentionApp.ConfigurationGrabber.GetSection($"drivers:{driver}").GetSection("pageLoadTimeOut") != null)
-                    //{
-                    //    Driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(int.Parse(ExtentionApp.ConfigurationGrabber.GetSection($"drivers:{driver}").GetSection("pageLoadTimeOut").Value));
-                    //};
                     break;
 
                 case "OpenQA.Selenium.Firefox.FirefoxDriver":
-                    Driver = new FirefoxDriver();
                     break;
 
                 case "OpenQA.Selenium.PhantomJS.PhantomJSDriver":
