@@ -21,14 +21,14 @@ namespace GtabbersDotNetCore.Bll.BllRepositories.Robots.RobotBase
         {
             var basePath =
                 System.IO.Path.GetDirectoryName((System.Reflection.Assembly.GetExecutingAssembly().Location)) + "/Resources/";
-            var driver = Helper.ConfigurationGrabber.GetSection($"Grabbers:digikey").Value;
+            var driver = Helper.ConfigurationGrabber.GetSection($"Grabbers:{robot}").Value;
             Type type = Type.GetType($"{driver},CoreCompat.Selenium.WebDriver");
             switch (driver)
             {
                 case "OpenQA.Selenium.Chrome.ChromeDriver":
                     ChromeDriverService service = ChromeDriverService.CreateDefaultService(basePath);
                     ChromeOptions options = new ChromeOptions();
-                    
+                  
                     if (Helper.ConfigurationGrabber.GetSection($"Drivers:{driver}").GetSection("arguments") != null)
                         options.AddArguments(
                             (Helper.ConfigurationGrabber.GetSection($"Drivers:{driver}").GetSection("arguments").GetChildren().Select(x => x.Value.ToString())));
@@ -37,6 +37,9 @@ namespace GtabbersDotNetCore.Bll.BllRepositories.Robots.RobotBase
                     break;
 
                 case "OpenQA.Selenium.Firefox.FirefoxDriver":
+
+                    FirefoxDriverService serv = FirefoxDriverService.CreateDefaultService(basePath);
+                    Driver = (FirefoxDriver)Activator.CreateInstance(type, serv);
                     break;
 
                 case "OpenQA.Selenium.PhantomJS.PhantomJSDriver":

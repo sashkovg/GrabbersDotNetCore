@@ -43,12 +43,16 @@ namespace GtabbersDotNetCore.Bll.BllRepositories.Robots
                     var link = Driver.FindElement(By.CssSelector("#qpLinkList a"));
                     link.Click();
                 }
+                else if (Driver.IsElementExist(By.CssSelector(".topResultsSection table td")))
+                {
+                    var link = Driver.FindElement(By.CssSelector(".topResultsSection table td a"));
+                    link.Click();
+                }
                 else if (Driver.IsElementExist(By.Id("productIndexList")))
                 {
                     var link = Driver.FindElement(By.CssSelector("#productIndexList a"));
                     link.Click();
-                }
-
+                }   
                 if (Driver.IsElementExist(By.CssSelector("#productTable")))
                 {
                     return Helper.TypeOfSearchResult.Products;

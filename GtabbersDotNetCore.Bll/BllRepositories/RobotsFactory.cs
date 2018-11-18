@@ -23,6 +23,9 @@ namespace GtabbersDotNetCore.Bll.BllRepositories
                 case "digikey":
                     robot = new DigikeyRobot(request.Data, request.Robot.ToLower());
                     break;
+                case "farnell":
+                    robot = new FarnellRobot(request.Data, request.Robot.ToLower());
+                    break;
                 default:
                     throw new Exception($"{request.Robot} doesn't exist");
             }

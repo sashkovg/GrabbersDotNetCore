@@ -14,7 +14,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/15/2018 21:36:17</publishTime>
     </File>
     <File Include="appsettings.json">
-      <publishTime>10/21/2018 20:31:57</publishTime>
+      <publishTime>11/18/2018 15:50:29</publishTime>
     </File>
     <File Include="config.json">
       <publishTime>10/15/2018 01:01:17</publishTime>
@@ -32,34 +32,34 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/01/2017 15:13:14</publishTime>
     </File>
     <File Include="GrabbersDotNetCore.Model.dll">
-      <publishTime>10/17/2018 23:07:23</publishTime>
+      <publishTime>11/18/2018 14:29:32</publishTime>
     </File>
     <File Include="GrabbersDotNetCore.Model.pdb">
-      <publishTime>10/17/2018 23:07:23</publishTime>
+      <publishTime>11/18/2018 14:29:32</publishTime>
     </File>
     <File Include="GtabbersDotNetCore.Bll.dll">
-      <publishTime>10/21/2018 20:30:03</publishTime>
+      <publishTime>11/18/2018 15:03:10</publishTime>
     </File>
     <File Include="GtabbersDotNetCore.Bll.pdb">
-      <publishTime>10/21/2018 20:30:03</publishTime>
+      <publishTime>11/18/2018 15:03:10</publishTime>
     </File>
     <File Include="GtabbersDotNetCore.WebApi.deps.json">
-      <publishTime>10/21/2018 20:32:30</publishTime>
+      <publishTime>11/18/2018 15:50:46</publishTime>
     </File>
     <File Include="GtabbersDotNetCore.WebApi.dll">
-      <publishTime>10/21/2018 20:32:27</publishTime>
+      <publishTime>11/18/2018 15:50:39</publishTime>
     </File>
     <File Include="GtabbersDotNetCore.WebApi.pdb">
-      <publishTime>10/21/2018 20:32:27</publishTime>
+      <publishTime>11/18/2018 15:50:39</publishTime>
     </File>
     <File Include="GtabbersDotNetCore.WebApi.PrecompiledViews.dll">
-      <publishTime>10/21/2018 20:32:29</publishTime>
+      <publishTime>11/18/2018 15:50:45</publishTime>
     </File>
     <File Include="GtabbersDotNetCore.WebApi.PrecompiledViews.pdb">
-      <publishTime>10/21/2018 20:32:29</publishTime>
+      <publishTime>11/18/2018 15:50:45</publishTime>
     </File>
     <File Include="GtabbersDotNetCore.WebApi.runtimeconfig.json">
-      <publishTime>10/21/2018 20:32:30</publishTime>
+      <publishTime>11/18/2018 15:50:46</publishTime>
     </File>
     <File Include="HtmlAgilityPack.CssSelectors.NetCore.dll">
       <publishTime>10/02/2018 05:20:26</publishTime>
@@ -185,7 +185,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/05/2016 04:57:34</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>10/21/2018 20:32:30</publishTime>
+      <publishTime>11/18/2018 15:50:46</publishTime>
     </File>
   </ItemGroup>
 </Project>
